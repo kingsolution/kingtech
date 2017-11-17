@@ -1,0 +1,79 @@
+<div class="container-widget">
+	<!-- Start First Row -->
+	<div class="row">
+
+
+		<!-- Start Panel -->
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-title">
+					Course Management
+					<ul class="panel-tools">
+						<li><a popover-placement="left"
+							uib-popover="Add new entry from here.."
+							popover-trigger="'mouseenter'" class="icon" ng-click="vm.add()"><i
+								class="fa fa-plus"></i></a></li>
+					</ul>
+				</div>
+				<div class="panel-body table-responsive">
+
+					<table datatable="ng" id="example" class="table display">
+						<thead>
+							<tr>
+							<th class="text-center">Sr No </th>
+								<th class="text-center">Course Name</th>
+								<th class="text-center">Course Language</th>
+								<!-- <th class="text-center">Question Count</th> -->
+								<th class="text-center">Action</th>
+							</tr>
+						</thead>
+
+						<tfoot>
+							<tr>
+							<th class="text-center">Sr No </th>
+								<th class="text-center">Course Name</th>
+								<th class="text-center">Course Language</th>
+								<!-- <th class="text-center">Question Count</th> -->
+								<th class="text-center">Action</th>
+							</tr>
+						</tfoot>
+
+						<tbody>
+							<tr ng-repeat="course in vm.courses">
+							<td class="text-center">{{$index+1}} </td>
+								<td class="text-center">{{course.course_name}}</td>
+							    <td class="text-center">{{course.course_language	}}</td>
+								<!-- <td class="text-center">{{exam.question_count}}</td>  -->
+								<!-- <td>{{farm.farm_aim}}</td> -->
+								<td class="text-center">
+									<button type="button" class="btn btn-default"
+										ng-click="vm.view(course)">
+										<i class="fa fa-eye" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-default"
+										ng-click="vm.add(course)">
+										<i class="fa fa-edit" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-default"
+										ng-click="vm.deletConfirm(course)">
+										<i class="fa fa-trash" aria-hidden="true"></i>
+									</button>
+									
+									<button type="button" ng-class="course.active==0 ? 'btn btn-success' : 'btn btn-danger' " Title="Active"
+										ng-click="vm.active(course)">
+										<i ng-class="course.active==0 ? 'fa fa-check' : 'fa fa-close' " aria-hidden="true"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+		</div>
+		<!-- End Panel -->
+
+	</div>
+	<!-- End First Row -->
+</div>

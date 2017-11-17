@@ -1,0 +1,89 @@
+<div class="col-md-12 col-lg-12">
+	<div class="panel panel-default">
+
+		<div class="panel-title">
+			Exam  Management 
+			<!-- <ul class="panel-tools">
+					<li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+					<li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+					<li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+				</ul> -->
+		</div>
+
+
+		<div class="panel-body">
+			<form name="addForm" ng-init="addForm.$pristine">
+				<div class="row">
+					<div class="col-md-12 col-xs-12">
+					
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Select Subject</label> 
+								<select class="form-control"
+								ng-model="exam.subject.subject_id" name="subject_name" 
+								ng-options="subject.subject_id as subject.subject_name for subject in vm.subjects" required></select>
+							</div>
+							<span class="mandatory" ng-show = "addForm.subject_name.$touched && addForm.subject_name.$invalid">  
+								<span class="mandatory" ng-show = "addForm.subject_name.$error.required" style="color:red;">Subject Name is required.</span>  
+							</span>
+						</div>
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Exam Name * :</label> <input type="text"
+									ng-model="exam.exam_name" placeholder=" " name="exam_name" 
+									class="form-control" required />
+							</div>
+							<span class="mandatory" ng-show = "addForm.exam_name.$touched && addForm.exam_name.$invalid">  
+								<span class="mandatory" ng-show = "addForm.exam_name.$error.required" style="color:red;">This field is compalsary.</span>  
+							</span>
+						</div>
+					
+								
+					
+						<div class="col-md-6 col-xs-6">
+							<div class="form-group">
+								<label for="fullname">Question Count * :</label> <input type="text"
+									ng-model="exam.question_count" 
+									class="form-control" required />
+							</div>
+						</div> 
+						<div class="col-md-6 col-xs-6">
+							<div class="form-group">
+								<label for="fullname">Exam Timing * :</label> <input type="text"
+									ng-model="exam.exam_timing" 
+									class="form-control" required />
+							</div>
+						</div> 
+						
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+							<label for="fullname">Remark * :</label>
+							<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-desktop"></i></div>
+								 <textarea placeholder=""
+									ng-model="exam.remark" placeholder=" "
+									class="form-control" required /></textarea>
+									</div>
+							</div>
+						</div>
+						
+						
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<div class="form-group pull-right">
+									<button type="submit" class="btn btn-default btn-danger"
+										ng-click="vm.cancel()">Cancel</button>
+									<button type="submit" class="btn btn-default btn-primary"
+										ng-click="vm.ok(exam)" ng-disabled="!addForm.$valid">Submit</button>
+								</div>
+							</div>
+						</div>.
+					</div>
+			
+				</div>
+			</form>	
+
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,175 @@
+<div class="col-md-12 col-lg-12">
+	<div class="panel panel-default">
+
+		<div class="panel-title">
+			User 
+			<!-- <ul class="panel-tools">
+					<li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+					<li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+					<li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+				</ul> -->
+		</div>
+
+
+		<div class="panel-body">
+			<form name="addForm" ng-init="addForm.$pristine">
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+					
+							<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Select User Type <span  style= "color:red"> *</span> :</label> 
+								<select class="form-control"
+								ng-model="user.userType.user_type_id" name="user_type_id" 
+								ng-options="userType.user_type_id as userType.user_type_name for userType in vm.userTypes" required>
+								<option value="" disabled selected>Select User Type</option></select>
+								<span class="mandatory" ng-show = "addForm.user_type_id.$touched && addForm.user_type_id.$invalid">  
+										<span class="mandatory" ng-show = "addForm.user_type_id.$error.required" style="color:red;">User Type is required.</span>
+									</span>
+							</div>
+						</div>
+						
+						<div class="col-md-6 col-xs-12" ng-if="user.userType.user_type_id==2">
+								<div class="form-group">
+									<label for="fullname">Select Teachers <span  style= "color:red"> *</span> :</label> 
+									<select class="form-control" ng-change="vm.userDetails()"
+									ng-model="user.usertype_spe_id" name="teacher" 
+									ng-options="teacher.teacher_id as teacher.fname+' '+teacher.lname for teacher in vm.teachers" required>
+									<option value="" disabled selected>Select Teacher</option></select>
+									<span class="mandatory" ng-show = "addForm.teacher.$touched && addForm.teacher.$invalid">  
+										<span class="mandatory" ng-show = "addForm.resource.$error.required" style="color:red;">Resource is required.</span>
+									</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12" ng-if="user.userType.user_type_id==3">
+								<div class="form-group">
+									<label for="fullname">Select Student</label> 
+									<select class="form-control" ng-change="vm.userDetails()"
+									ng-model="user.usertype_spe_id" name="" 
+									ng-options="student.student_id as student.fname+' '+student.lname for student in vm.students" required>
+									<option value="" disabled selected>Select Student</option></select>
+									<span class="mandatory" ng-show = "addForm.fname.$touched && addForm.canNo.$invalid">  
+										<span class="mandatory" ng-show = "addForm.fname.$error.required" style="color:red;">First Name is required.</span>
+									</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">First Name * :</label> <input type="text"
+									ng-model="user.fname" placeholder="Enter First Name" name="fname"
+									class="form-control" disabled required />
+									<span class="mandatory" ng-show = "addForm.fname.$touched && addForm.fname.$invalid">  
+										<span class="mandatory" ng-show = "addForm.fname.$error.required" style="color:red;">First Name is required.</span>
+									</span>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Last Name * :</label> <input type="text"
+									ng-model="user.lname" placeholder="Enter Last Name" name="lname"
+									class="form-control" disabled required />
+									<span class="mandatory" ng-show = "addForm.lname.$touched && addForm.lname.$invalid">  
+										<span class="mandatory" ng-show = "addForm.lname.$error.required" style="color:red;">Last Name is required.</span>
+									</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Select Gender</label> <select
+									class="form-control" ng-model="user.gender" name="gender" required>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+								<span class="mandatory" ng-show = "addForm.gender.$touched && addForm.gender.$invalid">  
+									<span class="mandatory" ng-show = "addForm.gender.$error.required" style="color:red;">Gender is required.</span>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+						<div class="form-group">
+								<label for="fullname">Mobile  Number * :</label> <input
+									type="text" ng-model="user.mobile_no" class="form-control"
+									name="Contact Number" required />
+							</div>
+						</div>
+
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Email * :</label> <input type="text" name="email_id"
+									ng-model="user.email" class="form-control" name="Email id" disabled
+									required />
+								<span class="mandatory" ng-show = "addForm.email_id.$touched && addForm.email_id.$invalid">  
+									<span class="mandatory" ng-show = "addForm.email_id.$error.required" style="color:red;">Email ID is required.</span>
+								</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-xs-12">
+					
+						
+					
+					<div class="col-md-6 col-xs-12" >
+							<div class="form-group">
+								<label for="fullname">Password * :</label> 
+								<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-desktop"></i></div> <input type="password"  ng-model="user.password" class="form-control"  
+									placeholder="Password"  required />
+									<div class="input-group-addon"><a popover-placement="left"
+							uib-popover="Show Password....."
+							popover-trigger="'mouseenter'" class="icon" ng-click="hideShowPassword()"><i
+								class="fa fa-eye"></i></a></div>
+									</div>
+									
+								<span class="mandatory" ng-show = "addForm.password.$touched && addForm.password.$invalid">  
+									<span class="mandatory" ng-show = "addForm.password.$error.required" style="color:red;">User Name  is required.</span>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12" >
+							<div class="form-group">
+								<label for="fullname">Role</label>
+								<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-desktop"></i></div> 
+								<select class="form-control"
+								ng-model="user.role.role_id" name="" 
+								ng-options="role.role_id as role.role_name for role in vm.roles" required>>
+								<option value="" disabled selected>Select Role</option></select>
+							</div>
+							</div>
+						</div>
+						
+
+                          <div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Address * :</label>
+								<textarea class="form-control" ng-model="user.address">
+								</textarea>
+							</div>
+						</div>
+                          
+					
+
+						
+					
+					
+						
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<div class="form-group pull-right">
+									<button type="submit" class="btn btn-default btn-danger"
+										ng-click="vm.cancel()">Cancel</button>
+									<button type="submit" class="btn btn-default btn-primary"
+										ng-click="vm.ok(user)">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>	
+
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,176 @@
+<div class="col-md-12 col-lg-12">
+	<div class="panel panel-default">
+
+		<div class="panel-title">
+			Student
+			<!-- <ul class="panel-tools">
+					<li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+					<li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+					<li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+				</ul> -->
+		</div>
+
+
+		<div class="panel-body">
+			<form name="addForm" ng-init="addForm.$pristine">
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">First Name * :</label><div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-user"></i></div> <input type="text" 
+								ng-change="vm.studentCode()"
+									ng-model="student.fname	" name="fname"placeholder="First Name"
+									class="form-control" required />
+									
+							</div>
+							<span class="mandatory" ng-show = "addForm.fname.$touched && addForm.fname.$invalid">  
+								<span class="mandatory" ng-show = "addForm.fname.$error.required" style="color:red;">First Name is required.</span>  
+							</span>
+							</div>
+							
+						</div>
+
+							<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Last Name * :</label><div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-user"></i></div> <input type="text" 
+								ng-change="vm.studentCode()"
+									ng-model="student.lname	" name="lname" placeholder="Last Name"
+									class="form-control" required />
+									
+							</div>
+							<span class="mandatory" ng-show = "addForm.lname.$touched && addForm.lname.$invalid">  
+								<span class="mandatory" ng-show = "addForm.lname.$error.required" style="color:red;">Last Name is required.</span>  
+							</span>
+							</div>
+							
+						</div>
+						
+						<div class="col-md-6 col-xs-12">
+						<div class="form-group" >
+							<label for="fullname">student Code :</label> 
+							<div class="input-group input-left-icon">
+                    			<span class="input-group-addon">
+                    			<i class="fa fa-book"></i></span><input
+									type="text" ng-model="student.student_code=student_code" class="form-control" ng-value="student_code"
+									 required placeholder="Student Code " disabled />
+									<div class="input-group-addon"><a popover-placement="left"
+							uib-popover="View Student Code Click here.."
+							popover-trigger="'mouseenter'" class="icon" ng-click="vm.studentCode()"><i
+								class="fa fa-eye"></i></a></div>
+							</div>
+						</div>
+					</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Select Gender</label> <select
+									class="form-control" ng-model="student.gender" name="gender">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+							</div>
+						</div> 
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Date Of Birth* :</label> <input type="date"
+									ng-model="student.date_of_birth" class="form-control" name=""
+									required />
+							</div>
+						</div>
+					
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Education *</label> 
+								<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-graduation-cap"></i></div> <input type="text"
+									ng-model="student.education" class="form-control" required />
+							</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-xs-12">
+									<div class="form-group">
+								<label for="fullname">Email * :</label>
+								<div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-envelope"></i></div> <input type="text"
+									ng-model="student.email_id" class="form-control" name="Email id"
+									required />
+							</div>
+							</div>
+						</div>
+						
+
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">College Name *</label> <input type="text"
+									ng-model="student.college_name" class="form-control" required />
+							</div>
+						</div>
+					<!-- 
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Select User Type</label> 
+								<select class="form-control"
+								ng-model="user.userType.user_type_id" name="" 
+								ng-options="usertype.user_type_id as usertype.user_type_name for usertype in vm.userType" required></select>
+							</div>
+						</div>
+						 -->
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Mobile No<span class="mandatory">*</span> :</label><div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-phone"></i></div>
+								 <input type="text"
+									ng-model="student.mob_no" name="mob_no"  ng-minlength="10" ng-maxlength="10" class="form-control" required />
+									
+							</div>
+							<span ng-show="addForm.mob_no.$error.required && addForm.mob_no.$dirty" class="mandatory" style="color:red;">This field is required</span>
+									<span ng-show="!addForm.mob_no.$error.required && (addForm.mob_no.$error.minlength || addForm.mob_no.$error.maxlength) && addForm.mob_no.$dirty" class="mandatory"style="color:red;">invalid Mobile number</span>
+						</div>
+						</div>
+						
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Studying Year *</label> <input type="text"
+									ng-model="student.studying_year" class="form-control" required />
+							</div>
+						</div>
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">City *</label> <input type="text"
+									ng-model="student.city" class="form-control" required />
+							</div>
+						</div>
+						
+						
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Address:</label> <textarea placeholder=""
+									ng-model="student.address" class="form-control" required ></textarea>
+							</div>
+						</div>
+						
+							
+							
+
+						
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<div class="form-group pull-right">
+									<button type="submit" class="btn btn-default btn-danger"
+										ng-click="vm.cancel()">Cancel</button>
+									<button type="submit" class="btn btn-default btn-primary"
+										ng-click="vm.ok(student)"ng-disabled="!addForm.$valid">Submit</button>
+								</div>
+							</div>
+						</div>.
+					</div>
+				</div>
+			</form>	
+
+		</div>
+
+	</div>
+</div>

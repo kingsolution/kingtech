@@ -1,0 +1,158 @@
+<div class="col-md-12 col-lg-12">
+	<div class="panel panel-default">
+
+		<div class="panel-title">
+			Teacher
+			<!-- <ul class="panel-tools">
+					<li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+					<li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+					<li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+				</ul> -->
+		</div>
+
+
+		<div class="panel-body">
+			<form name ="addForm" ng-init="addForm.$pristine">
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">First Name * :</label><div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-user"></i></div>  <input type="text"
+									ng-model="teacher.fname" name="fname" placeholder="Enter First Name"
+									class="form-control" required />
+									
+							
+							</div>
+							<span class="mandatory" ng-show = "addForm.fname.$touched && addForm.fname.$invalid">  
+								<span class="mandatory" ng-show = "addForm.fname.$error.required" style="color:red;">First Name is required.</span>  
+							</span>
+							</div>
+							
+						</div>
+
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Last Name * :</label> <div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-user"></i></div> <input type="text"
+									ng-model="teacher.lname" name="lname" placeholder="Enter Last Name"
+									class="form-control" required />
+									
+							</div>
+							<span class="mandatory" ng-show = "addForm.lname.$touched && addForm.lname.$invalid">  
+								<span class="mandatory" ng-show = "addForm.lname.$error.required" style="color:red;">Last Name is required.</span>  
+							</span>
+							</div>
+							
+						</div>
+				
+						
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Select Gender</label> <select
+									class="form-control" ng-model="teacher.gender">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Date Of Birth:</label> <input type="date"
+									ng-model="teacher.date_of_birth" class="form-control" required />
+							</div>
+						</div>
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Email * :</label><div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-envelope"></i></div> <input type="text"
+									ng-model="teacher.email" class="form-control" name="Email id"
+									required />
+							</div>
+							</div>
+						</div>
+						
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Mobile No <span class="mandatory">*</span> :</label><div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-phone"></i></div> <input type="text"
+									ng-model="teacher.mob_no" name="mob_no"  ng-minlength="10" ng-maxlength="10" class="form-control" required />
+									
+							</div>
+							<span ng-show="addForm.mob_no.$error.required && addForm.mob_no.$dirty" class="mandatory" style="color:red;">This field is required</span>
+									<span ng-show="!addForm.mob_no.$error.required && (addForm.mob_no.$error.minlength || addForm.mob_no.$error.maxlength) && addForm.mob_no.$dirty" class="mandatory"style="color:red;">invalid Mobile number</span>
+							</div>
+						</div>
+
+						
+
+					</div>
+					<div class="col-md-6 col-xs-12">
+						
+						
+						
+							
+					<!-- 
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Select User Type</label> 
+								<select class="form-control"
+								ng-model="user.userType.user_type_id" name="" 
+								ng-options="usertype.user_type_id as usertype.user_type_name for usertype in vm.userType" required></select>
+							</div>
+						</div>
+						 -->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Education * :</label><div class="input-group">
+								<div class="input-group-addon"><i class="fa fa-graduation-cap"></i></div>  <input
+									type="text" ng-model="teacher.education" class="form-control"
+									name="Mobile Number" required />
+							</div>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Teaching Year * :</label> <input
+									type="text" ng-model="teacher.teaching_yr" class="form-control"
+									name="teaching Year" required />
+							</div>
+						</div>
+						
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">City * :</label> <input
+									type="text" ng-model="teacher.city" class="form-control"
+									name="city" required />
+							</div>
+						</div>
+							
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Address:</label> <textarea placeholder=""
+									ng-model="teacher.address" class="form-control" required ></textarea>
+							</div>
+						</div>
+						
+							
+
+						
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<div class="form-group pull-right">
+									<button type="submit" class="btn btn-default btn-danger"
+										ng-click="vm.cancel()">Cancel</button>
+									<button type="submit" class="btn btn-default btn-primary"
+										ng-click="vm.ok(teacher)"ng-disabled="!addForm.$valid">Submit</button>
+								</div>
+							</div>
+						</div>.
+					</div>
+				</div>
+			</form>	
+
+		</div>
+
+	</div>
+</div>

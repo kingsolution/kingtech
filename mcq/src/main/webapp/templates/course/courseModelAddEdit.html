@@ -1,0 +1,72 @@
+<div class="col-md-12 col-lg-12">
+	<div class="panel panel-default">
+
+		<div class="panel-title">
+			Course  Management 
+			<!-- <ul class="panel-tools">
+					<li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+					<li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+					<li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+				</ul> -->
+		</div>
+
+
+		<div class="panel-body">
+			<form name="addForm" ng-init="addForm.$pristine">
+				<div class="row">
+					<div class="col-md-12 col-xs-12">
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Course Name * :</label> <input type="text"
+									ng-model="course.course_name" placeholder=" " name="course_name" 
+									class="form-control" required />
+							</div>
+							<span class="mandatory" ng-show = "addForm.course_name.$touched && addForm.course_name.$invalid">  
+								<span class="mandatory" ng-show = "addForm.course_name.$error.required" style="color:red;">This field is compalsary.</span>  
+							</span>
+						</div>
+					
+								
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Course Language</label> <select
+									class="form-control" ng-model="course.course_language" placeholder=" " name="course_language" class="form-control" required>
+									<option value="English">English</option>
+									<option value="Hindi">hindi</option>
+									<option value="Marathi">Marathi</option>
+									
+								</select>
+								<span class="mandatory" ng-show = "addForm.course_language.$touched && addForm.course_language.$invalid">  
+									<span class="mandatory" ng-show = "addForm.course_language.$error.required" style="color:red;">Course Language is required.</span>
+								</span>
+							</div>
+						</div>
+						
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Course Description * :</label> <input type="text"
+									ng-model="course.course_des" placeholder=" "
+									class="form-control" required />
+							</div>
+						</div>
+						
+						
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<div class="form-group pull-right">
+									<button type="submit" class="btn btn-default btn-danger"
+										ng-click="vm.cancel()">Cancel</button>
+									<button type="submit"  class="btn btn-default btn-primary"
+										ng-click="vm.ok(course)" ng-disabled="!addForm.$valid">Submit</button>
+								</div>
+							</div>
+						</div>.
+					</div>
+			
+				</div>
+			</form>	
+
+		</div>
+
+	</div>
+</div>

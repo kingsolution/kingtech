@@ -1,0 +1,148 @@
+<div class="col-md-12 col-lg-12">
+	<div class="panel panel-default">
+
+		<div class="panel-title">
+			Student
+			<!-- <ul class="panel-tools">
+					<li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
+					<li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
+					<li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
+				</ul> -->
+		</div>
+
+
+		<div class="panel-body">
+			<form name="addForm" ng-init="addForm.$pristine">
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+						
+					 <div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Topic Name</label> 
+								<div class="input-group ">
+								<span class="input-group-addon">
+                    				<i class="fa fa-cubes"></i></span>
+								<select class="form-control"
+								ng-model="question.topic.topic_id" name="topic_name" 
+								ng-options="topic.topic_id as topic.topic_name for topic in vm.topics" required>
+								<option value="" disabled selected>Select topic </option></select>
+								<div class="input-group-addon"><a popover-placement="left"
+							uib-popover="Add new entry from here.."
+							popover-trigger="'mouseenter'" class="icon" ng-click="vm.addTopic()"><i
+								class="fa fa-plus"></i></a></div>
+							</div>
+							<span class="mandatory" ng-show = "addForm.topic_name.$touched && addForm.topic_name.$invalid">  
+								<span class="mandatory" ng-show = "addForm.topic_name.$error.required" style="color:red;">Topic Name is required.</span>  
+							</span>
+						</div>
+					</div>
+								<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Question Name * :</label> <textarea 
+									ng-model="question.question_name" name="question_name" placeholder="question Name"
+									class="form-control" required />
+							</div>
+							<span class="mandatory" ng-show = "addForm.question_name.$touched && addForm.question_name.$invalid">  
+								<span class="mandatory" ng-show = "addForm.question_name.$error.required" style="color:red;">This field is compalsary.</span>  
+							</span>
+						</div>
+						
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Option A * :</label> <input type="text"
+									ng-model="question.option_a" class="form-control" name="option_a"
+									required />
+							</div>
+							<span class="mandatory" ng-show = "addForm.option_a.$touched && addForm.option_a.$invalid">  
+								<span class="mandatory" ng-show = "addForm.option_a.$error.required" style="color:red;">This field is compalsary.</span>  
+							</span>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Option B *</label> <input type="text"
+									ng-model="question.option_b"  name="option_b" class="form-control" required />
+							</div>
+							<span class="mandatory" ng-show = "addForm.option_b.$touched && addForm.option_b.$invalid">  
+								<span class="mandatory" ng-show = "addForm.option_b.$error.required" style="color:red;">This field is compalsary.</span>  
+							</span>
+						</div>
+
+					<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Option C *</label> <input type="text"
+									ng-model="question.option_c"   name="option_c" class="form-control" required />
+							</div>
+							<span class="mandatory" ng-show = "addForm.option_c.$touched && addForm.option_c.$invalid">  
+								<span class="mandatory" ng-show = "addForm.option_c.$error.required" style="color:red;">This field is compalsary.</span>  
+							</span>
+						</div>
+						
+							<div class="col-md-6 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Option D *</label> <input type="text"
+									ng-model="question.option_d"  name="option_d" class="form-control" required />
+							</div>
+							<span class="mandatory" ng-show = "addForm.option_d.$touched && addForm.option_d.$invalid">  
+								<span class="mandatory" ng-show = "addForm.option_d.$error.required" style="color:red;">This field is compalsary.</span>  
+							</span>
+						</div>
+
+					</div>
+					<div class="col-md-6 col-xs-12">
+						
+						
+					<!-- 
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Select User Type</label> 
+								<select class="form-control"
+								ng-model="user.userType.user_type_id" name="" 
+								ng-options="usertype.user_type_id as usertype.user_type_name for usertype in vm.userType" required></select>
+							</div>
+						</div>
+						 -->
+						
+						
+						
+					<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Right Option *</label> <select
+									class="form-control" ng-model="question.right_option">
+									<option value="Male">A</option>
+									<option value="Female">B</option>
+									<option value="Female">C</option>
+									<option value="Female">D</option>
+								</select>
+							</div>
+							
+						</div>
+						
+						
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label for="fullname">Remark *</label> <textarea placeholder=""
+									ng-model="question.remark" class="form-control" required ></textarea>
+							</div>
+						</div>
+						
+							
+
+						
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<div class="form-group pull-right">
+									<button type="submit" class="btn btn-default btn-danger"
+										ng-click="vm.cancel()">Cancel</button>
+									<button type="submit" class="btn btn-default btn-primary"
+										ng-click="vm.ok(student)"ng-disabled="!addForm.$valid">Submit</button>
+								</div>
+							</div>
+						</div>.
+					</div>
+				</div>
+			</form>	
+
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container-widget">
+	<!-- Start First Row -->
+	<div class="row">
+
+
+		<!-- Start Panel -->
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-title">
+					Teacher Management
+					<ul class="panel-tools">
+						<li><a popover-placement="left"
+							uib-popover="Add new entry from here.."
+							popover-trigger="'mouseenter'" class="icon" ng-click="vm.add()"><i
+								class="fa fa-plus"></i></a></li>
+					</ul>
+				</div>
+				<div class="panel-body table-responsive">
+
+					<table datatable="ng" id="example" class="table display">
+						<thead>
+							<tr>
+							    <th class="text-center">Sr No </th>
+								<th class="text-center">Teacher  Name</th>
+								<th class="text-center">Gender</th>
+								 <th class="text-center">Education</th> 
+								<th class="text-center">Action</th>
+							</tr>
+						</thead>
+
+						<tfoot>
+							<tr>
+							    <th class="text-center">Sr No </th>
+								<th class="text-center">Teacher  Name</th>
+								<th class="text-center">Gender</th>
+								 <th class="text-center">Education</th> 
+								<th class="text-center">Action</th>
+							</tr>
+						</tfoot>
+
+						<tbody>
+							<tr ng-repeat="teacher in vm.teachers">
+							    <td class="text-center">{{$index+1}} </td>
+								<td class="text-center">{{teacher.fname}} {{teacher.lname}}</td>
+							    <td class="text-center">{{teacher.gender}}</td>
+								<td class="text-center">{{teacher.education}}</td>  
+								
+								<td class="text-center">
+									<button type="button" class="btn btn-default"
+										ng-click="vm.view(teacher)">
+										<i class="fa fa-eye" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-default"
+										ng-click="vm.add(teacher)">
+										<i class="fa fa-edit" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-default"
+										ng-click="vm.deletConfirm(teacher)">
+										<i class="fa fa-trash" aria-hidden="true"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+		</div>
+		<!-- End Panel -->
+
+	</div>
+	<!-- End First Row -->
+</div>

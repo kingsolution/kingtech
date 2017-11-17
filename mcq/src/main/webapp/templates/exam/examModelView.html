@@ -1,0 +1,26 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">
+		 Subject Name: {{vm.items.subject.subject_name}}
+		
+	</h3>
+</div>
+<div class="modal-body" id="modal-body">
+	<dl class="dl-horizontal">
+		<dt>Exam Name</dt>
+		<dd>{{vm.items.exam_name}}</dd>
+	</dl>
+	<dl class="dl-horizontal">
+		<dt>Question Count</dt>
+		<dd>{{vm.items.question_count}}</dd>
+	</dl>
+	
+	<dl class="dl-horizontal">
+		<dt>Exam Timing</dt>
+		<dd>{{vm.items.exam_timing}}</dd>
+	</dl>
+	
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+	<button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+</div>

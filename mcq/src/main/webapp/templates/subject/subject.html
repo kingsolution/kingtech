@@ -1,0 +1,76 @@
+<div class="container-widget">
+	<!-- Start First Row -->
+	<div class="row">
+
+
+		<!-- Start Panel -->
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-title">
+					Subject Management
+					<ul class="panel-tools">
+						<li><a popover-placement="left"
+							uib-popover="Add new entry from here.."
+							popover-trigger="'mouseenter'" class="icon" ng-click="vm.add()"><i
+								class="fa fa-plus"></i></a></li>
+					</ul>
+				</div>
+				<div class="panel-body table-responsive">
+
+					<table datatable="ng" id="example" class="table display">
+						<thead>
+							<tr>
+							    <th class="text-center">Sr No </th>
+								<th class="text-center">Subject Name</th>
+								<th class="text-center">Subject Language</th>
+								<th class="text-center">Subject Descrption</th>
+								
+								<th class="text-center">Action</th>
+							</tr>
+						</thead>
+
+						<tfoot>
+							<tr>
+							    <th class="text-center">Sr No </th>
+								<th class="text-center">Subject Name</th>
+								<th class="text-center">Subject Language</th>
+								<th class="text-center">Subject Descrption</th>
+								
+								<th lass="text-center">Action</th>
+							</tr>
+						</tfoot>
+
+						<tbody>
+							<tr ng-repeat="subject in vm.subjects">
+							    <td class="text-center">{{$index+1}} </td>
+								<td class="text-center">{{subject.subject_name}}</td>
+							    <td class="text-center">{{subject.sub_language}}</td>
+								<td class="text-center">{{subject.subject_description}}</td> 
+								<!-- <td>{{farm.farm_aim}}</td> -->
+								<td class="text-center">
+									<button type="button" class="btn btn-default"
+										ng-click="vm.view(subject)">
+										<i class="fa fa-eye" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-default"
+										ng-click="vm.add(subject)">
+										<i class="fa fa-edit" aria-hidden="true"></i>
+									</button>
+									<button type="button" class="btn btn-default"
+										ng-click="vm.deletConfirm(subject)">
+										<i class="fa fa-trash" aria-hidden="true"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+		</div>
+		<!-- End Panel -->
+
+	</div>
+	<!-- End First Row -->
+</div>
